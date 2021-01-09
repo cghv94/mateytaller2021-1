@@ -1,0 +1,81 @@
+---
+title: "4. Caso práctico de gráficas con R"
+subtitle: "Graficando con `ggplot2`, `plotly` y `ggmap`"
+author: "Cesar Hernández"
+date: "11/11/2020"
+output: html_document
+---
+
+### I. Activando las librerías
+
+```{r setup}
+library(ggplot2) #Gráficas más bonitas
+library(plotly) #Gráficas interactivas
+library(ggmap) #Mapas
+```
+
+### II. Conociendo el problema
+
+Un enfermo de covid estuvo desplazándose en la Ciudad de México durante 21 días. Como el gobierno recopila los datos de su gps, es posible determinar la longitud y latitud de los lugares en los que estuvo:
+
+```{r}
+dia<-1:21
+longitud<-sample(seq(-99.2,-99.1,0.01), 21, T)
+latitud<-sample(seq(19.4,19.5,0.01), 21, T)
+gps<-data.frame(dia,longitud,latitud)
+gps
+```
+
+### III. Graficando con `ggplot` y `geom_point`
+
+Vamos a utilizar la función `ggplot` y la función `geom_point` para hacer una grafica de puntos:
+
+```{r message=FALSE, warning=FALSE}
+ruta_enfermo<-ggplot(gps)+geom_point(aes(x=longitud,y=latitud), color = dia)
+ruta_enfermo
+```
+
+### IV. Graficando con `ggplot` y `geom_text`
+
+Vamos a utilizar la función `ggplot` y la función `geom_text` para hacer una grafica con los números de los días que el enfermo de covid estuvo en la ciudad:
+
+```{r message=FALSE, warning=FALSE}
+ruta_con_dias<-ggplot(gps)+ geom_text(aes(longitud, latitud, label = gps$dia))
+ruta_con_dias
+```
+
+### V. Haciendo una gráfica interactiva con `ggplotly`
+
+Vamos a utilizar la función `ggplotly` para hacer una grafica interactiva:
+
+```{r message=FALSE, warning=FALSE}
+ggplotly(ruta_con_dias)
+```
+
+### VI. Graficando los datos del gps del enfermo de covid en un mapa con la función `qmplot`
+
+La función `qmplot` nos permite crear mapas de forma rápida siempre y cuando tengamos información sobre latitud y la longitud:
+
+```{r message=FALSE, warning=FALSE}
+qmplot(longitud, latitud, data = gps)
+```
+
+### VII. Personalizando nuestro mapa
+
+Podemos cambiar el color y el tamaño de los puntos de nuestro mapa agregando los parámetros `color` y `size`:
+
+```{r message=FALSE, warning=FALSE}
+qmplot(longitud, latitud, data = gps, color = dia, size = I(5))
+```
+
+### VIII. Mapa de densidad
+
+Podemos agregar el parámetro `geom = c("point","density2d")` para hacer un mapa de puntos y densidad:
+
+```{r message=FALSE, warning=FALSE}
+qmplot(longitud, latitud, data = gps, geom = c("point","density2d"))  
+```
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

@@ -1,0 +1,154 @@
+---
+title: "3. Funciones en R, graficando las asíntotas de una función"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "28/10/2020"
+output: html_document
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+## 1. Graficando asíntotas de una función
+
+### Definimos un dominio `x` para nuestras funciones 
+
+```{r}
+x<-seq(-5, 5, 0.1)
+x
+```
+
+### Definimos f(x): `f(x)=1/x`
+
+```{r}
+fx<-1/x
+fx
+```
+
+### Graficando `f(x)`:
+
+```{r}
+plot(x,fx, type="o", col = "darkgreen")
+```
+
+### Graficando las asíntotas de `f(x)`:
+
+```{r}
+plot(x,fx, type="o", col = "darkgreen") + abline(h = 0, v = 0, col = "red")
+```
+
+### Definimos g(x): `g(x)=(2*x^2)/(x^2-4)`
+
+```{r}
+gx<-(2*x^2)/(x^2-4)
+gx
+```
+
+### Graficando `g(x)`:    
+
+```{r}
+plot(x,gx, type="o", col = "blue")
+```
+
+### Graficando las asíntotas de `g(x)`:
+
+```{r}
+plot(x,gx, type="o", col = "blue") + abline(h = 1, v = c(-2,2), col = "red")
+```
+
+### Definimos h(x): `h(x)=g(x)/f(x)`
+
+```{r}
+hx<-gx/fx
+hx
+```
+
+### Graficando `h(x)`:
+
+```{r}
+plot(x,hx, type="o", col = "purple")
+```
+
+### Graficando las asíntotas de `h(x)`:
+
+```{r}
+plot(x,hx, type="o", col = "purple") + abline(v = c(-2,2), col = "red")
+```
+
+## 2. Graficando con ggplot2
+
+### Creando un `data.frame`  con nuestras variables:
+
+```{r}
+datos<-data.frame(x,fx,gx,hx)
+datos
+```
+
+### Graficando `f(x)`:
+
+```{r}
+grafica_fx<-ggplot() + geom_point(data = datos, aes(x = x, y = fx), color = "darkgreen")
+grafica_fx
+```
+
+### Graficando las asíntotas de `f(x)`:
+
+```{r}
+grafica_fx + geom_vline(xintercept = 0) + geom_hline(yintercept = 0)
+```
+
+### Graficando el polígono de `f(x)`:
+
+```{r}
+poligino_fx<-ggplot() + geom_polygon(data = datos, aes(x = x, y = fx), fill = "darkgreen")
+poligino_fx
+```
+
+### Graficando `g(x)`:
+
+```{r}
+grafica_gx<-ggplot() + geom_point(data = datos, aes(x = x, y = gx), color = "blue")
+grafica_gx
+```
+
+### Graficando las asíntotas de `g(x)`:
+
+```{r}
+grafica_gx + geom_vline(xintercept = c(-2,2)) + geom_hline(yintercept = 1)
+```
+
+### Graficando el polígono de `g(x)`:
+
+```{r}
+poligino_gx<-ggplot() + geom_polygon(data = datos, aes(x = x, y = gx), fill = "blue") + xlab("Eje x") + ylab("Eje y")
+poligino_gx
+```
+
+### Graficando `h(x)`:
+
+```{r}
+grafica_hx<-ggplot() + geom_point(data = datos, aes(x = x, y = hx), color = "purple")
+grafica_hx
+```
+
+### Graficando las asíntotas de `h(x)`:
+
+```{r}
+grafica_hx + geom_vline(xintercept = c(-2,2))
+```
+
+### Graficando el polígono de `h(x)`:
+
+```{r}
+poligino_hx<-ggplot() + geom_polygon(data = datos, aes(x = x, y = hx), fill = "purple") + xlab("Eje x") + ylab("Eje y")
+poligino_hx
+```
+
+## 3. Actividad de repaso:
+
+Ingresa a [https://rstudio.cloud/project/1833666](https://rstudio.cloud/project/1833666), sigue las instrucciones y crea tu primer gráfica con la función `ggplot`.  
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

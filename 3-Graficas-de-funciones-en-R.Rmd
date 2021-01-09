@@ -1,0 +1,127 @@
+---
+title: "3. Funciones en R, gráficas de funciones"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "21/10/2020"
+output: html_document
+---
+
+## 1. Funciones matemáticas
+
+### Definimos un dominio `x` para nuestras funciones 
+
+```{r}
+x<-(-5:5)
+```
+
+### I. Función constante `f(x)=3`
+
+```{r}
+fx<-rep(3, 11)
+plot(x,fx)
+```
+
+### II. Función idetidad: `g(x)=x`
+
+```{r}
+gx<-x
+plot(x,gx, type="o")
+```
+
+### III. Función lineal: `h(x)=3x+4` y=mx+b
+
+```{r}
+hx<-3*x+4
+plot(x,hx, type="l")
+```
+
+### IV. Función cuadrática: `i(x)=x^2`
+
+```{r}
+ix<-x^2
+plot(x,ix, col="61",type="o")
+```
+
+### V. Función cúbica: `j(x)=x^3` 
+
+```{r}
+jx<-x^3
+plot(x,jx, main="Función cúbica", xlab="Eje x", ylab="Eje y", col="purple", type="o")
+```
+
+### VI. Función racional `k(x)=1/x`
+
+```{r}
+kx<-1/x
+plot(x,kx, main="Función racional", sub="Fuente: elaboración propia", xlab="Eje x", ylab="Eje y", col="64", type="o")
+```
+
+### VII. Función logarítmica: `l(x)=log(x)`
+
+```{r}
+lx<-log(x)
+plot(x,lx, main="Función logarítmica", sub="Fuente: elaboración propia",xlab="Eje x", ylab="Eje y", col="50", type="o")
+```
+
+### VIII. Función exponencial: `m(x)=2^x`
+
+```{r}
+mx<-2^x
+plot(x,mx, main="Función exponencial", sub="Fuente: elaboración propia",xlab="Eje x", ylab="Eje y",col="52", type="o")
+```
+
+## 2. Funciones trigonométricas
+
+### I. Función seno: `n(x)=sin(x)`
+
+```{r}
+nx<-sin(x)
+plot(x,nx, main="Función seno", sub="Fuente: elaboración propia",xlab="Eje x", ylab="Eje y", col="green", type="o")
+```
+
+### II. Función coseno: `o(x)=cos(x)`
+
+```{r}
+ox<-cos(x)
+plot(x,ox, main="Función coseno", sub="Fuente: elaboración propia",xlab="Eje x", ylab="Eje y", col="yellow", type="o")
+```
+
+### III. Función tangente: `p(x)=tan(x)`
+
+```{r}
+px<-tan(x)
+plot(x,px, main="Función tangente", sub="Fuente: elaboración propia", xlab="Eje x", ylab="Eje y", col="darkblue", type="o")
+```
+
+## 3. Mi primer data frame
+
+### Creando un data frame de todos losresultados
+
+```{r}
+tododex<-data.frame(x,fx,gx,hx,ix,jx,kx,lx,mx,nx,ox,px)
+tododex
+```
+
+### Graficando todo el data frame
+
+```{r}
+plot(tododex)
+```
+
+### Graficando columnas específicas de un data frame
+
+```{r}
+plot(tododex$jx,tododex$px, type = "o")
+```
+
+```{r}
+plot(tododex$mx,tododex$kx, type = "o")
+```
+
+## 4. Actividad de repaso:
+
+Ingresa a [`https://rstudio.cloud/project/1801244`](https://rstudio.cloud/project/1801244) y sigue las instrucciones.
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

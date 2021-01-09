@@ -1,0 +1,228 @@
+---
+title: "1. Introducción a R"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "5/10/2020"
+output: html_document
+---
+
+### 1. R como calculadora
+
+R puede hacer cualquiera de las siguientes operaciones matemáticas:
+
+I. Suma
+
+```{r}
+1+2
+```
+
+II. Resta
+
+```{r}
+1-2
+```
+
+III. Multiplicación
+
+```{r}
+1*2
+```
+
+IV. División
+
+```{r}
+1/684
+```
+
+V. División entera
+
+```{r}
+10%%6
+```
+
+VI. Potencia
+
+```{r}
+2^3
+```
+
+VII. Raiz
+
+```{r}
+2^(1/2)
+```
+
+También podemos obtener la raíz mediante la función `sqrt`:
+
+```{r}
+sqrt(57)
+```
+
+VIII. Exponencial
+
+```{r}
+exp(1)
+```
+
+IX. Logaritmo natural
+
+```{r}
+log(1)
+```
+
+X. Seno
+
+```{r}
+sin(0)
+```
+
+XI. Coseno
+
+```{r}
+cos(pi)
+```
+
+XII. Tangente
+
+```{r}
+tan(pi)
+```
+
+XIII. Valor absoluto
+
+```{r}
+abs(-5)
+```
+
+XIV. Redondear
+
+```{r}
+round(pi,4)
+```
+
+### 2. Creando objetos en R
+
+Para crear un objeto en R, debemos asignar un nombre seguido de `<-`, por ejemplo:
+
+```{r}
+objeto1<-0.5
+objeto2<-TRUE
+objeto3<-"hola"
+objeto4<-1+5i
+```
+
+Para visualizar los objetos recien creados podemos usar las suguientes alternativas:
+
+```{r}
+print(objeto1)
+show(objeto2)
+objeto3
+objeto4
+```
+
+También podemos conocer el tipo de objeto con la función `class`:
+
+```{r}
+class(objeto1)
+class(objeto2)
+class(objeto3)
+class(objeto4)
+```
+
+### 3. Vectores en R
+
+Podemos decir que un vector es un objeto que contiene varios elementos de la misma clase, por ejemplo, un vector de números:
+
+```{r}
+vector<-c(1,2,3,4)
+vector
+```
+
+Tambien podemos hacer vectores con caracteres:
+
+```{r}
+perro<-c("p","e","r","r","o")
+perro
+```
+
+Una forma sencilla de crear un vector en secuencia del 25 al 40 es utilizando `:`, por ejemplo:
+
+```{r}
+a<-25:40
+a
+```
+
+### 4. Encontrar el elemento `n` de cualquier vector
+
+Podemos encontrar el primer elemento del vector `a` de la siguente manera:
+
+```{r}
+a[1]
+```
+
+Si deseamos encontrar el décimo elemento del vector `a`, podemos hacerlo como se muestra a continuación:
+
+```{r}
+a[10]
+```
+
+### 5. Operaciones con vectores y escalares
+
+Si nuestro vector es de la clase `numeric`, podemos hacer operaciones con vectores de la misma clase así como con escalares:
+
+I. Sumar `a+1`
+
+```{r}
+b<-a+1
+b
+```
+
+II. Restar `a-1`
+
+```{r}
+c<-a-1
+c
+```
+
+III. Multiplicar `a*2`
+
+```{r}
+d<-a*2
+d
+```
+
+IV. Dividir `a/2`
+
+```{r}
+e<-a/2
+e
+```
+
+V. Potencia al cuadrado `a^2`
+
+```{r}
+f<-a*a
+f
+```
+
+VI. Raíz cuadrada `a^(1/2)`
+
+```{r}
+g<-a^(1/2)
+g
+```
+
+También esposible con la función `sqrt`
+
+```{r}
+h<-sqrt(a)
+h
+```
+
+### 6. Actividad de repaso:
+
+Ingresa a [`https://rstudio.cloud/learn/primers/1.2`](https://rstudio.cloud/learn/primers/1.2) y realiza el repaso [`Programming basics`](https://rstudio.cloud/learn/primers/1.2), tendrás que ver algunos videos y responder algunas preguntas, te tomará aproximadamente 20 minutos. Mucha suerte y felicidades por completar tu primera práctica en R.
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

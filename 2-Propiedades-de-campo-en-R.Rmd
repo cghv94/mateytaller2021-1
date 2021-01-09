@@ -1,0 +1,122 @@
+---
+title: "2. Conjuntos en R, propiedades de campo"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "14/10/2020"
+output: html_document
+---
+
+## 1. Propiedades de campo
+
+### Creando los conjuntos `a`, `b`, `c`
+
+```{r}
+a<-1:10
+a
+```
+
+```{r}
+b<-5:15
+b
+```
+
+```{r}
+c<-10:20
+c
+```
+
+## Comprobando las propiedades de campo
+
+### I. Conmutatividad 
+
+### `aUb=bUa`
+
+```{r}
+aUb<-union(a,b)
+aUb
+```
+
+```{r}
+bUa<-union(b,a)
+bUa
+```
+
+Comprobando la propiedad de conmutatividad con la función `setequal`:
+
+```{r}
+Conmutatividad1<-setequal(aUb,bUa)
+Conmutatividad1
+```
+
+### `aIb=bIa`
+
+```{r}
+aIb<-intersect(a,b)
+aIb
+```
+
+```{r}
+bIa<-intersect(b,a)
+bIa
+```
+
+Comprobando la propiedad de conmutatividad con la función `setequal`:
+
+```{r}
+Conmutatividad2<-setequal(aIb,bIa)
+Conmutatividad2
+```
+
+### II. Asociatividad 
+
+### `aU(bUc)=bU(aUc)`
+
+```{r}
+bUc<-union(b,c)
+aUbUc<-union(bUc,a)
+aUbUc
+```
+
+```{r}
+aUc<-union(a,c)
+bUaUc<-union(aUc,b)
+bUaUc
+```
+
+Comprobando la propiedad de asociatividad con la función `setequal`:
+
+```{r}
+Asociatividad<-setequal(aUbUc,bUaUc)
+Asociatividad
+```
+
+### III. Distributividad 
+
+### `aI(bUc)=(aIb)U(aIc)`
+
+```{r}
+aIbUc<-intersect(a,bUc)
+aIbUc
+```
+
+```{r}
+aIb<-intersect(a,b)
+aIc<-intersect(a,c)
+aIbUaIc<-union(aIb,aIc)
+aIbUaIc
+```
+
+Comprobando la propiedad de distributividad con la función `setequal`:
+
+```{r}
+Distributividad<-setequal(aIbUc,aIbUaIc)
+Distributividad
+```
+
+## 2. Actividad de repaso:
+
+¿Sabías que puedes programar R en la nube sin gastar tus horas de RStudio Cloud? Ingresa a [`https://rnotebook.io/`](https://rnotebook.io/), crea un R Notebook y comprueba las propiedades de campo con todos los conjuntos.
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

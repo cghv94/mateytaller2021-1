@@ -1,0 +1,61 @@
+---
+title: "5. Determinación de máximos y mínimos en R"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "02/12/2020"
+output: html_document
+---
+
+### 1. Activando la librería
+
+```{r setup}
+library(Deriv) #Nesesaria para hacer derivadas en R con la función Deriv
+```
+
+
+### 2. Creamos la función `f`
+
+```{r}
+f<-function(x) (x^2)+5
+f
+```
+
+### 3. Obtenemos la primera derivada de la función `f`
+
+```{r}
+fprima<-Deriv(f, "x")
+fprima
+```
+
+### 4. Obtenemos la segunda derivada de la función `f`
+
+```{r}
+fbiprima<-Deriv(fprima, "x")
+fbiprima
+```
+
+## Utilizando inteligencia artificial (IA) para determinar si el punto crítico es un máximo o mínimo mediante el criterio de la segunda derivada
+
+### 5. Mi primer algoritmo de IA
+
+```{r}
+if (fbiprima()<0){print("Máximo")} else if (fbiprima()>0){print("Mínimo")} else {print("No se puede determinar si el punto crítico es un máximo o un mínimo")}
+```
+
+### 6. Mi segundo algoritmo IA
+
+```{r}
+if (fbiprima()<0){print("El punto crítico corresponde a un máximo relativo")} else if (fbiprima()>0){print("El punto crítico corresponde a un mínimo relativo")} else {print("No se puede determinar si el punto crítico es un máximo o un mínimo")}
+```
+
+### 7. Actividad de repaso
+
+Intenta determinar si los puntos críticos son máximos o mínimos mediante el criterio de la segunda derivada:
+
+i. l(x)=x^2-5*x^2
+ii. m(x)=12^(1/2)+5*x^2
+iii. n(x)=x^5/5*x^3
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

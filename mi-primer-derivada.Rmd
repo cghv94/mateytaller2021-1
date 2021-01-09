@@ -1,0 +1,19 @@
+---
+title: "mi título"
+author: "Cesar Hernández"
+date: "2/12/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(Deriv)
+```
+
+### Mi primera derivada
+
+```{r}
+g<-function(x) x^4-99*x^2
+gprima<-Deriv(g, "x")
+gprima
+```
+

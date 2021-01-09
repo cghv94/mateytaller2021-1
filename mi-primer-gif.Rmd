@@ -1,0 +1,26 @@
+---
+title: "Mi primer gif"
+author: "Cesar Hernández"
+date: "11/11/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(gganimate)
+library(magick)
+```
+
+```{r}
+x<-seq(-1,1,0.1)
+fx<-1/x
+datos<-data.frame(x,fx)
+grafica<-ggplot(datos)+geom_point(aes(x=x,y=fx))
+grafica
+```
+
+```{r}
+grafica+transition_reveal(x)
+```
+
+

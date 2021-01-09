@@ -1,0 +1,129 @@
+---
+title: "6. Matrices y arreglos en R"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "04/12/2020"
+output: html_document
+---
+
+### 1. Para crear una matriz cuadrada de 2x2
+
+```{r}
+a<-c(1,2)
+b<-c(3,4)
+c<-matrix(c(a,b),nrow=2)
+c
+```
+
+### 2. Para crear una matriz cuadrada de 3x3
+
+```{r}
+d<-c(1,4,7)
+e<-c(2,5,8)
+f<-c(3,6,9)
+g<-matrix(c(d,e,f),nrow=3)
+g
+```
+
+### 3. Para crear una matriz de datos de 3x2
+
+```{r}
+h<-c(1,2,3)
+i<-c(4,5,6)
+j<-matrix(c(h,i),nrow=3)
+colnames(j)=c("Columna H","Columna I")
+rownames(j)=c("Fila uno","Fila dos","Fila tres")
+j
+```
+
+### 4. Para crear una matriz por columnas
+
+```{r}
+k<-c(10,20,30)
+l<-c(40,50,60)
+m<-cbind(k,l)
+colnames(m)<-c("Columna K","Columna L")
+rownames(m)<-c("Fila I","Fila II","Fila III")
+m
+```
+
+### 5. Para crear una matriz por renglones
+
+```{r}
+n<-c("gato","mesa","rojo")
+o<-c("perro","silla","verde")
+p<-rbind(n,o)
+colnames(p)<-c("Animal","Cosa","Color")
+rownames(p)<-c("Fila N","Fila O")
+p
+```
+
+### 6. Para crear una matriz por columnas de manera rápida
+
+```{r}
+matriz<-cbind(numero=c(1,3,5),animal=c("perro","gato","oso"),cosa=c("mesa","silla","puera"))
+matriz
+```
+
+### 7. Para crear un arreglo de datos (matriz con varias capas)
+
+```{r}
+matriz1<-cbind(c(1,3,5),c("perro","gato","oso"),c("mesa","silla","puera"))
+matriz2<-cbind(c(2,4,6),c("lobo","conejo","pato"),c("libro","pluma","goma"))
+mi_primer_arreglo<-array(c(matriz1,matriz2),dim = c(3,3,2))
+mi_primer_arreglo
+```
+
+### 8. Para cambiar el nombre de las columnas en nuestro arreglo
+
+```{r}
+colnames(mi_primer_arreglo)<-c("Número","Animal","Cosa")
+rownames(mi_primer_arreglo)<-c("Primera fila","Segunda fila","Tercer fila")
+mi_primer_arreglo
+```
+
+### 9. Un arreglo de edad, peso y altura
+
+En 2019, Ana tenía 15 años, pesaba 48 kilos y medía 1.50; para 2020, Ana tenía 16 años, pesaba 50 kilos y medía 1.55.
+En 2019, Juan tenía 13 años, pesaba 40 kilos y medía 1.45; para 2020, Juan tenía 14 años, pesaba 51 kilos y medía 1.50.
+En 2019, Pedro tenía 17 años, pesaba 60 kilos y medía 1.60; para 2020, Pedro tenía 18 años, pesaba 65 kilos y medía 1.65.
+
+### Haciendo el arreglo por columnas
+
+```{r}
+datos2019<-cbind(c(15,13,17),c(48,40,60),c(1.50,1.45,1.60))
+datos2020<-cbind(c(16,14,18),c(50,51,65),c(1.55,1.50,1.65))
+arreglo_columnas<-array(c(datos2019,datos2020),dim = c(3,3,2))
+colnames(arreglo_columnas)<-c("Edad","Peso","Estatura")
+rownames(arreglo_columnas)<-c("Ana","Juan","Pedro")
+arreglo_columnas
+```
+
+### Haciendo el arreglo por filas
+
+```{r}
+info2019<-rbind(c(15,48,1.50),c(13,40,1.45),c(17,60,1.60))
+info2020<-rbind(c(16,50,1.55),c(14,51,1.50),c(18,65,1.65))
+arreglo_filas<-array(c(info2019,info2020),dim = c(3,3,2))
+colnames(arreglo_filas)<-c("Edad","Peso","Estatura")
+rownames(arreglo_filas)<-c("Ana","Juan","Pedro")
+arreglo_filas
+```
+
+### 10. Importando una base de datos del portal de datos abiertos del Gobierno de la Ciudad de México
+
+Si exploramos los datos disponibles, seleccionamos alguno, vamos a la sección de exportar y copiamos la dirección del enlace de descarga del archivo `.csv`, podemos importar los datos a R
+
+```{r}
+datos_de_ciclistas<-read.csv("https://datos.cdmx.gob.mx/explore/dataset/contador-ciclistas/download/?format=csv&timezone=America/Mexico_City&lang=es&use_labels_for_header=true&csv_separator=%2C")
+head(datos_de_ciclistas) #Mostrará unicamente loas primeras filas
+```
+
+
+### 11. Actividad de repaso
+
+Reúnete en equipos y hagan un arreglo con la edad, peso y altura de cada uno de los itegrantes en los años 2019 y 2020. Una ves que terminen, suban el archivo html a su github. 
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

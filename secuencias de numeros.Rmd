@@ -1,0 +1,34 @@
+---
+title: "Secuencias de números"
+author: "Cesar Hernández"
+date: "11/11/2020"
+output: html_document
+---
+
+# Repetir números
+
+```{r}
+-10:5
+```
+
+# Repetir números
+
+```{r}
+rep(2:4, 6)
+```
+
+# Secuencias por intervalos
+
+```{r}
+seq(1,5,0.1)
+```
+
+# Muestra aleatoria
+
+```{r}
+sample(seq(1,5,0.1), 6, T)
+```
+
+Piensa a qué parte de la República mexicana te gustaría viajar, busca las coordenadas y escríbelas como en el ejemplo:
+nombre<-c("mi nombre", longitud, latitud)
+cesar<-c("Cesar", 20.967778, -89.621667)

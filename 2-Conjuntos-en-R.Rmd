@@ -1,0 +1,215 @@
+---
+title: "2. Conjuntos en R, operaciones con conjuntos"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "12/10/2020"
+output: html_document
+---
+
+## 1. Unión e intersección de conjuntos
+
+Creando el vector `i` en R:
+
+```{r}
+i<-1:15
+i
+```
+
+Creando el vector `j` en R:
+
+```{r}
+j<-10:25
+j
+```
+
+Creando la unión de los vectores `i`, `j` con la función `union`:
+
+```{r}
+k<-union(i,j)
+k
+```
+
+También podemos crear la intersección de los vectores `i`, `j` con la función `intersect`: 
+
+```{r}
+l<-intersect(i,j)
+l
+```
+
+Podemos saber la diferencia entre los vectores `i`, `j` (elementos que aparecen en `i` y no aparecen en `j`), con la función `setdiff`:
+
+```{r}
+m<-setdiff(i,j)
+m
+```
+
+También podemos saber la diferencia entre los vectores `j`, `i` (elementos que aparecen en `j` y no aparecen en `i`), con la función `setdiff`:
+
+```{r}
+n<-setdiff(j,i)
+n
+```
+
+Finalmente, podemos comprobar si los vectores `i`, `j` son iguales mediante la función `setequal`:
+
+```{r}
+son_iguales<-setequal(i,j)
+son_iguales
+```
+
+## 2. Leyes de los conjuntos
+
+Creando el conjunto universo, `u`:
+
+```{r}
+u<-1:20
+u
+```
+
+Creando el conjunto vacío, `v`:
+
+```{r}
+v<-c()
+v
+```
+
+Creando los conjuntos `x`, `y`, `z`:
+
+```{r}
+x<-1:10
+x
+```
+
+```{r}
+y<-5:15
+y
+```
+
+```{r}
+z<-10:20
+z
+```
+
+
+### I. Identidad
+
+La unión de un conjunto cualquiera con el conjunto vacío es el mismo conjunto:
+
+```{r}
+xUv<-union(x,v)
+xUv
+```
+
+Comprobando la propiedad de identidad con la función `setequal`:
+
+```{r}
+Identidad1<-setequal(xUv,x)
+Identidad1
+```
+
+La intersección de un conjunto cualquiera con el conjunto universo es el mismo conjunto:
+
+```{r}
+xIu<-intersect(x,u)
+xIu
+```
+
+Comprobando la propiedad de identidad con la función `setequal`:
+
+```{r}
+Identidad2<-setequal(xIu,x)
+Identidad2
+```
+
+### II. Dominación
+
+La unión de un conjunto cualquiera con el conjunto universo, es el conjunto universo:
+
+```{r}
+xUu<-union(x,u)
+xUu
+```
+
+Comprobando la propiedad de dominación con la función `setequal`:
+
+```{r}
+Dominación1<-setequal(xUu,u)
+Dominación1
+```
+
+La intersección de un conjunto cualquiera con el conjunto vacío, es el conjunto vacío:
+
+```{r}
+xIv<-intersect(x, v)
+xIv
+```
+
+Comprobando la propiedad de dominación con la función `setequal`:
+
+```{r}
+Dominación2<-setequal(xIv,v)
+Dominación2
+```
+
+### III. Idempotencia
+
+La unión de un conjunto cualquiera consigo mismo, es el mismo conjunto: 
+
+```{r}
+xUx<-union(x,x)
+xUx
+```
+
+Comprobando la propiedad de idempotencia con la función `setequal`:
+
+```{r}
+Idempotencia1<-setequal(xUx,x)
+Idempotencia1
+```
+
+La intersección de un conjunto cualquiera consigo mismo, es el mismo conjunto: 
+
+```{r}
+xIx<-intersect(x,x)
+xIx
+```
+
+Comprobando la propiedad de idempotencia con la función `setequal`:
+
+```{r}
+Idempotencia2<-setequal(xIx,x)
+Idempotencia2
+```
+
+### IV. Complementariedad
+
+La negación de la negación de un conjunto cualquiera, es el mismo conjunto:
+
+* Creando `x complemento` (primera negación)
+
+```{r}
+xc<-setdiff(u,x)
+xc
+```
+
+* Creando `x complemento-complemento` (segunda negación)
+
+```{r}
+xcc<-setdiff(u,xc)
+xcc
+```
+
+Comprobando la propiedad de complementariedad con la función `setequal`:
+
+```{r}
+Complementariedad<-setequal(xcc,x)
+Complementariedad
+```
+
+## 3. Actividad de repaso:
+
+¿Sabías que puedes programar R en la nube sin gastar tus horas de RStudio Cloud? Ingresa a [`https://rnotebook.io/`](https://rnotebook.io/), crea un R Notebook y comprueba las leyes de los conjuntos con los conjuntos `y`, `z`.
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

@@ -1,0 +1,68 @@
+---
+title: "5. Derivadas en R"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "02/12/2020"
+output: html_document
+---
+
+### 1. Activando la librería
+
+```{r setup}
+library(Deriv) #Nesesaria para hacer derivadas en R con la función Deriv
+```
+
+### 2. Primer método
+
+R puede realizar derivadas sin la necesidad de instalar librerías si utilizamos `expression` para crear nuestra función y posteriormente utilizamos `D` para obtener la derivada:
+
+```{r}
+f<-expression(x^2)
+fprima<-D(f,"x")
+fprima
+```
+
+### 3. Segundo método
+
+Con la librería `Deriv`, tambien podemos hacer derivadas en R. Primero, utilizaremos `function` para crear nuestra función y posteriormente, utilizaremos `Deriv` para calcular la derivada:
+
+```{r}
+g<-function(x) x^2
+gprima<-Deriv(g, "x")
+gprima
+```
+
+### 4. Creando un dominio para nuestra función
+
+```{r}
+x<-seq(-5,5,0.1)
+x
+```
+
+### 5. Graficando nuestra función
+
+Si deseamos hacer una gráfica de nuestra función y su derivada, tenemos que utilizar el segundo método:
+
+```{r}
+gx<-g(x)
+plot(x,gx)
+```
+
+Gráfica de la derivada:
+
+```{r}
+gprimax<-gprima(x)
+plot(x,gprimax)
+```
+
+### 6. Actividad de repaso
+
+Intenta calcular la primera derivada con cualquiera de los métodos anteriores:
+
+i. l(x)=x^4-99*x^2
+ii. m(x)=x^7-11*x^2
+iii. n(x)=x^8+5*x
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>

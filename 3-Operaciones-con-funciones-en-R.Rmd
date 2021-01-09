@@ -1,0 +1,105 @@
+---
+title: "3. Funciones en R, operaciones con funciones"
+subtitle: "Facultad de Economía, UNAM"
+author: "[Profesor: Cesar Gerardo Hernández Vargas](https://cghv94.github.io)"
+date: "26/10/2020"
+output: html_document
+---
+
+## 1. Operaciones con funciones
+
+### Definimos un dominio `x` para nuestras funciones 
+
+```{r}
+x<-(-5:5)
+```
+
+### Definimos f(x): `f(x)=3*x+8`
+
+```{r}
+fx<-3*x+8
+fx
+```
+
+### Definimos g(x): `g(x)=x^2`
+
+```{r}
+gx<-x^2
+gx
+```
+
+### Graficando `f(x)`
+
+```{r}
+plot(x,fx, type="o")
+```
+
+### Graficando `g(x)`
+
+```{r}
+plot(x,gx, type="o")
+```
+
+### I. Suma de funciones: `f(x)+g(x)`
+
+```{r}
+f_mas_g<-fx+gx
+f_mas_g
+```
+
+### Graficando `f(x)+g(x)`
+
+```{r}
+plot(x, f_mas_g, type = "o")
+```
+
+### II. Resta de funciones: `g(x)-f(x)`
+
+```{r}
+g_menos_f<-gx-fx
+g_menos_f
+```
+
+### Graficando `g(x)-f(x)`
+
+```{r}
+plot(x, g_menos_f, type = "o")
+```
+
+### III. Multiplicación de funciones `f(x)*g(x)`:
+
+```{r}
+f_por_g<-fx*gx
+f_por_g
+```
+
+### Graficando `f(x)*g(x)`:
+
+```{r}
+plot(x,f_por_g, type = "o")
+```
+
+### IV. División de funciones `g(x)/f(x)`:
+
+```{r}
+g_entre_f<-gx/fx
+g_entre_f
+```
+
+### Graficando `g(x)/f(x)`:
+
+```{r}
+plot(x,g_entre_f, type = "o")
+```
+
+### V. Tabla de resultados
+
+```{r}
+tabla<-data.frame(x,fx,gx,f_mas_g,g_menos_f,f_por_g,g_entre_f)
+tabla
+```
+
+
+__________________________________________________________________________ 
+
+<p style="font-size: 50%">Esta obra fue generada mediante R en `r format(Sys.Date(), format = "%B %d, %Y")` y forma parte de las actividades realizadas en las materias de [Matemáticas I y Taller III](https://mateytaller.github.io/), [Facultad de Economía, UNAM](http://economia.unam.mx/). </br>Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional. </a>[Creative Commons (CC)](http://creativecommons.org/licenses/by-nc-sa/4.0/).<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a></p>
